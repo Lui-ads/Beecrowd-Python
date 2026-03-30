@@ -1,0 +1,27 @@
+# 1030 - Flavious Josephus Legend
+
+"""
+1 ≤ NC ≤ 30
+
+Entrada: 
+    n (1 ≤ n ≤ 10000) e k (1 ≤ k ≤ 1000)    
+
+casos = Números de casos
+n = Quantas pessoas
+k = quantos ao mesmo tempo se vão
+
+J(n,k)=(J(n−1,k)+k) mod n - x % n
+
+Caso base
+    J(1,k)=0
+
+"""
+
+casos = int(input())
+for i in range(casos):
+    n, k = map(int, input().split())
+    sobrevivente = 0 
+    for j in range(2, n + 1):
+        sobrevivente = (sobrevivente + k) % j
+    print(f"Case {i + 1}: {sobrevivente + 1}")
+
